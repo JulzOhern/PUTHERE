@@ -4,7 +4,7 @@ import { ImPencil2 } from "react-icons/im";
 
 const Navbar = () => {
   return (
-    <div className="flex items-center justify-center fixed inset-x-0 border-b border-zinc-200 p-3 bg-white">
+    <div className="flex items-center justify-center fixed inset-x-0 border-b border-zinc-200 p-3 bg-white z-500">
       <div className="flex item-center justify-between max-w-[45rem] flex-1">
         <div>
           <h1 className="flex items-center">
