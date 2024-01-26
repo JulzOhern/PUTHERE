@@ -26,12 +26,10 @@ const TextCard = ({ text }: TextCardProp) => {
     <>
       <div
         onClick={() => setSeeText(text.id)}
-        className="flex flex-col justify-between bg-white p-5 rounded-lg hover:scale-[1.1] hover:shadow-lg duration-200 border border-zinc-200 cursor-pointer"
+        className="flex flex-col justify-between bg-white p-5 rounded-lg sm:hover:scale-[1.1] shadow-lg duration-200 border border-zinc-200 cursor-pointer"
       >
         <div>
-          <h1 className="font-semibold text-xl text-zinc-400 mb-2">
-            {text.title}
-          </h1>
+          <h1 className="font-semibold text-xl  mb-2 truncate">{text.title}</h1>
           <p className="ellipsis whitespace-pre-wrap break-words break-all text-sm text-zinc-400 mb-4">
             {text.text}
           </p>
@@ -70,20 +68,24 @@ const TextCard = ({ text }: TextCardProp) => {
               setSeeText("");
             });
           }}
-          className="flex flex-col flex-1 max-w-[35rem] p-10 border border-zinc-200 rounded-lg bg-white h-[38rem]"
+          className="flex flex-col flex-1 max-w-[40rem] p-8 border border-zinc-200 rounded-lg bg-white h-[38rem] shadow-lg mx-3"
         >
           <div className="flex mb-4">
             <TextareadAutosize
-              className="w-0 flex-1 outline-none text-3xl font-semibold resize-none text-zinc-400"
+              spellCheck={false}
+              className="w-0 flex-1 outline-none text-3xl font-semibold resize-none"
               placeholder="Untitled"
               name="title"
+              required
               defaultValue={text.title}
             />
           </div>
 
           <textarea
-            className="flex-1 outline-none resize-none mb-5"
+            className="removeScrollTrack flex-1 outline-none resize-none mb-5 text-sm"
             name="text"
+            spellCheck={false}
+            required
             placeholder="Add text here..."
             defaultValue={text.text}
           />

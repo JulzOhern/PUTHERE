@@ -86,3 +86,26 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
+.removeScrollTrack::-webkit-scrollbar {
+  width: 5px;
+}
+
+.removeScrollTrack::-webkit-scrollbar-thumb {
+  background-color: rgba(184, 184, 184, 0.775);
+}
+
+.removeScrollTrack::-webkit-scrollbar-track {
+  background-color: rgba(224, 224, 224, 0.851);
+}
+
+body::-webkit-scrollbar {
+  width: 5px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: rgba(184, 184, 184, 0.775);
+}
+body::-webkit-scrollbar-track {
+  background-color: rgba(224, 224, 224, 0.851);
+}

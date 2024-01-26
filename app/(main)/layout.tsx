@@ -6,8 +6,8 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className="bg-zinc-50">
       <Navbar />
-      <Toaster richColors position="bottom-center" />
-      {children}
+      <Toaster richColors position="top-right" />
+      <div className="mx-3">{children}</div>
     </div>
   );
 };

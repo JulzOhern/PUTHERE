@@ -18,7 +18,7 @@ export default async function Home() {
         </div>
       ) : (
         <div className="gridCard gap-2 pt-20">
-          <div className="fixed right-12 bottom-7 bg-zinc-400 rounded-full p-2">
+          <div className="fixed right-7 bottom-7 bg-zinc-400 rounded-full p-2">
             <CreateText size="text-2xl" textColor="text-white" />
           </div>
           {text.map((item) => (

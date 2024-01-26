@@ -42,12 +42,13 @@ const CreateText = ({
             setIsOpen(false);
             e.currentTarget.reset();
           }}
-          className="flex flex-col flex-1 max-w-[35rem] p-10 border border-zinc-200 rounded-lg bg-white h-[38rem]"
+          className="flex flex-col flex-1 max-w-[35rem] p-10 border border-zinc-200 rounded-lg bg-white h-[38rem] mx-3"
         >
           <div className="flex mb-4">
             <TextareadAutosize
-              className="w-0 flex-1 outline-none text-3xl font-semibold resize-none text-zinc-400"
+              className="w-0 flex-1 outline-none text-3xl font-semibold resize-none"
               placeholder="Untitled"
+              required
               name="title"
             />
           </div>
@@ -55,6 +56,7 @@ const CreateText = ({
           <textarea
             className="flex-1 outline-none resize-none"
             name="text"
+            required
             placeholder="Add text here..."
           />
 
