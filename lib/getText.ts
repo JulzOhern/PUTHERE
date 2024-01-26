@@ -15,6 +15,9 @@ export const getText = async () => {
     where: {
       userId: user?.id,
     },
+    orderBy: {
+      createdAt: "desc",
+    },
   });
 
   return data;
