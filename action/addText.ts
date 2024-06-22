@@ -6,6 +6,11 @@ import { revalidatePath } from "next/cache";
 
 export const addText = async (formData: FormData) => {
   const user = await getUser();
+
+  if (!user || !user.id) {
+    throw new Error("Unauthorized user");
+  }
+
   const { text, title } = Object.fromEntries(formData.entries()) as {
     text: string;
     title: string;
@@ -20,6 +25,7 @@ export const addText = async (formData: FormData) => {
       },
     });
 
+    console.log("first");
     revalidatePath("/");
   } catch (error) {
     throw new Error("Failed to create text");

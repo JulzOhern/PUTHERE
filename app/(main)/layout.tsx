@@ -1,12 +1,12 @@
+import AddText from "@/components/add-text";
 import Navbar from "@/components/navbar";
 import React from "react";
-import { Toaster } from "sonner";
 
 const MainLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="bg-zinc-50">
+    <div className="min-h-[100dvh] bg-zinc-100">
       <Navbar />
-      <Toaster richColors position="top-right" />
+      <AddText />
       <div className="mx-3">{children}</div>
     </div>
   );

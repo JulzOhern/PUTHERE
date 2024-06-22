@@ -1,20 +1,42 @@
+"use client";
+
 import { UserButton } from "@clerk/nextjs";
-import React from "react";
-import { ImPencil2 } from "react-icons/im";
+import React, { ChangeEvent } from "react";
+import { Input } from "./ui/input";
+import { MdOutlineSearch } from "react-icons/md";
+import { useContextTextValue } from "./context-provider";
+import { searchText } from "@/action/search-text";
+import { toast } from "sonner";
 
 const Navbar = () => {
+  const { setText } = useContextTextValue();
+
+  function onSearch(e: ChangeEvent<HTMLInputElement>) {
+    searchText(e.target.value)
+      .then((data) => setText(data))
+      .catch((error) => toast.error(error.message));
+  }
+
   return (
-    <div className="flex items-center justify-center fixed inset-x-0 border-b border-zinc-200 p-3 bg-white z-500">
-      <div className="flex item-center justify-between max-w-[45rem] flex-1">
-        <div>
-          <h1 className="flex items-center">
-            <span className="border-b border-zinc-400 pr-3">PutHere</span>{" "}
-            <ImPencil2 className="scale-[1.3] ml-1 text-zinc-500" />
-          </h1>
-        </div>
-        <div>
-          <UserButton afterSignOutUrl="/" />
-        </div>
+    <div className="flex items-center justify-between h-16 px-3 shadow bg-white">
+      <div>
+        <h1 className="flex items-center gap-1 font-bold text-2xl tracking-[-2px]">
+          PUTHERE
+        </h1>
+      </div>
+
+      <div className="relative flex items-center flex-1 max-w-[30rem]">
+        <MdOutlineSearch className="absolute left-5 text-zinc-500 scale-[1.4]" />
+        <Input
+          type="text"
+          onChange={onSearch}
+          placeholder="Search notes"
+          className="slide-down bg-[#E0E0E0] pl-11 focus-visible:ring-0 focus-visible:ring-offset-0"
+        />
+      </div>
+
+      <div>
+        <UserButton afterSignOutUrl="/sign-in" showName={true} />
       </div>
     </div>
   );

@@ -1,9 +1,11 @@
 import { ClerkProvider } from "@clerk/nextjs";
 import type { Metadata } from "next";
-import { Pathway_Extreme } from "next/font/google";
+import { AR_One_Sans } from "next/font/google";
 import "./globals.css";
+import { Toaster } from "sonner";
+import ContextProvider from "@/components/context-provider";
 
-const pathway_extreme = Pathway_Extreme({ subsets: ["latin"] });
+const font = AR_One_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -18,7 +20,12 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
-        <body className={pathway_extreme.className}>{children}</body>
+        <body className={font.className}>
+          <ContextProvider>
+            <Toaster richColors position="top-right" />
+            {children}
+          </ContextProvider>
+        </body>
       </html>
     </ClerkProvider>
   );

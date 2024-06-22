@@ -75,37 +75,32 @@
   }
 }
 
-.gridCard {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+.slide-up {
+  animation: slideUp 0.4s ease;
 }
 
-.ellipsis {
-  display: -webkit-box;
-  -webkit-line-clamp: 5;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
 }
 
-.removeScrollTrack::-webkit-scrollbar {
-  width: 5px;
+.slide-down {
+  animation: slideDown 0.4s ease;
 }
 
-.removeScrollTrack::-webkit-scrollbar-thumb {
-  background-color: rgba(184, 184, 184, 0.775);
-}
-
-.removeScrollTrack::-webkit-scrollbar-track {
-  background-color: rgba(224, 224, 224, 0.851);
-}
-
-body::-webkit-scrollbar {
-  width: 5px;
-}
-
-body::-webkit-scrollbar-thumb {
-  background-color: rgba(184, 184, 184, 0.775);
-}
-body::-webkit-scrollbar-track {
-  background-color: rgba(224, 224, 224, 0.851);
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
 }
